@@ -11,9 +11,7 @@ def number_of_words(file_path):
 def number_of_chars(text):
     file_content = ""
     dict_chars = {}
-    with open(text) as f:
-        file_content = f.read()
-    for word in file_content:
+    for word in text:
         word = (word.lower())
         if word in dict_chars:
             dict_chars[word] += 1
@@ -22,3 +20,12 @@ def number_of_chars(text):
         
     return(dict_chars)
 
+def sort_on(items):
+    return items["num"]
+    
+def sorted_dictionary(dictionary):
+    result = []
+    for ch in dictionary:
+        result.append({"char": ch, "num": dictionary[ch]})
+    result.sort(reverse=True, key=sort_on)
+    return result
